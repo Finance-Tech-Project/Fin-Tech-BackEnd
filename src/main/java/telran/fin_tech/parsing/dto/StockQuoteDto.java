@@ -17,5 +17,4 @@ public class StockQuoteDto implements Serializable {
 	public List<StockQuoteDtoOnce> getHistory() {
 		return history;
 	}
-
 }

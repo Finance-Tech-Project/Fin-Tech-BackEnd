@@ -19,5 +19,4 @@ class HTMLParserTestClass {
 
 		System.out.println(parser.parseTable(parser.getTicker(), parser.getDateFrom(), parser.getDateTo(), parser.getInterval()));
 	}
-
 }

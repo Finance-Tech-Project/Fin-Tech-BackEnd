@@ -9,18 +9,14 @@ import telran.fin_tech.service.StockQuoteService;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.time.LocalDate;
-import java.util.List;
-
-
-
 
 @RestController
 @RequiredArgsConstructor
+//TODO добавить маппинг
 public class ParsingController {
 	final StockQuoteService stockQuoteService;
 	
-	@GetMapping("%{ticker}/history?{dateFrom}&{dateTo}&{interval}")
+	@GetMapping("{ticker}/history?{dateFrom}&{dateTo}&{interval}")
 	public StockQuoteDto getHistory(@PathVariable String ticker,@PathVariable String dateFrom, @PathVariable String dateTo,
 			@PathVariable String interval ) throws URISyntaxException, IOException {
 		return stockQuoteService.getHistoryByPeriod(ticker, dateFrom, dateTo, interval);

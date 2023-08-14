@@ -15,7 +15,7 @@ import java.util.List;
 public class StockQuoteService {
 	private final StockQuoteRepository stockQuoteRepository;
 	public final HTMLParser parser;
-
+	
 	public StockQuoteDto getHistoryByPeriod(String ticker, String dateFrom, String dateTo,
 			String interval) throws URISyntaxException, IOException {
 		return parser.parseTable(ticker, dateFrom, dateTo, interval);

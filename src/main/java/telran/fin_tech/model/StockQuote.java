@@ -29,5 +29,4 @@ public class StockQuote {
 	private String low;
 	private String close;
 	private String volume;
-
 }

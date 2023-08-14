@@ -7,4 +7,5 @@ import java.time.LocalDate;
 
 public interface StockQuoteRepository extends JpaRepository<StockQuote, LocalDate> {
 
+	
 }

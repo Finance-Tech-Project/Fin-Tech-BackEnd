@@ -2,6 +2,8 @@ package telran.fin_tech.parsing;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -18,6 +20,7 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Getter
+@Setter
 public class HTMLParser {
     public String ticker;
     public String dateFrom;
@@ -26,7 +29,6 @@ public class HTMLParser {
     public String filter;
     public String frequency;
     public String includeAdjustedClose;
-
 
     public HTMLParser(String ticker, String dateFrom, String dateTo, String interval) {
         this.ticker = ticker;
