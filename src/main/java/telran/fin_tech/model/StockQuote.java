@@ -5,25 +5,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.time.LocalDate;
+
+import javax.persistence.*;
+
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @Getter
 @Setter
-//  @Table (name = ? )
+@Table(name = "history_data" )
 public class StockQuote {
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	@Id
-	LocalDate date;
-	private String name;
-	private String symbol;
+
+	@EmbeddedId
+    private HistoryDataId id;
+//	private LocalDate date;
+//	private String ticker;
 	private String open;
 	private String high;
 	private String low;
