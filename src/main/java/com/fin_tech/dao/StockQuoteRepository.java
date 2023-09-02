@@ -2,6 +2,8 @@ package com.fin_tech.dao;
 
 import com.fin_tech.composite_key.StockQuoteId;
 import com.fin_tech.model.StockQuote;
+import com.fin_tech.model.Symbol;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,7 +16,7 @@ import java.util.List;
 public interface StockQuoteRepository extends JpaRepository<StockQuote, StockQuoteId> {
 
     @Query("SELECT COUNT(sq) > 0 FROM StockQuote sq WHERE sq.id.symbol = :symbol")
-    boolean existsBySymbol(@Param("symbol") String symbol);
+    boolean existsBySymbol(@Param("symbol") Symbol symbol);
 
-    List<StockQuote> findByIdSymbolAndIdDateBetween(String ticker, LocalDate dateFrom, LocalDate dateTo);
+    List<StockQuote> findByIdSymbolAndIdDateBetween(Symbol symbol, LocalDate dateFrom, LocalDate dateTo);
 }

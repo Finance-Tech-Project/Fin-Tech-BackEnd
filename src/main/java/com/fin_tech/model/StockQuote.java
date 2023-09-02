@@ -5,13 +5,16 @@ import lombok.*;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.time.LocalDate;
 
-@Builder
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Getter
 @ToString
+@Table(name = "stock_quotes")
 public class StockQuote {
     @EmbeddedId
     StockQuoteId id;
@@ -21,16 +24,15 @@ public class StockQuote {
     Double close;
     Long volume;
 
-    public StockQuote(StockQuoteId id, Double open, Double high, Double low, Double close) {
-    }
+
 
 
 //    public LocalDate getDate() {
 //        return getDate();
 //    }
-
-    public String getSymbol(){
-        return getId().getSymbol();
-
-    }
+//
+//    public Symbol getSymbol(){
+//        return getSymbol();
+//
+//    }
 }
