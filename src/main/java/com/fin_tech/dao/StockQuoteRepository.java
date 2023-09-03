@@ -1,6 +1,5 @@
 package com.fin_tech.dao;
 
-import com.fin_tech.composite_key.StockQuoteId;
 import com.fin_tech.model.StockQuote;
 import com.fin_tech.model.Symbol;
 
@@ -13,10 +12,20 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface StockQuoteRepository extends JpaRepository<StockQuote, StockQuoteId> {
+public interface StockQuoteRepository  extends JpaRepository<StockQuote,Symbol>{
 
-    @Query("SELECT COUNT(sq) > 0 FROM StockQuote sq WHERE sq.id.symbol = :symbol")
-    boolean existsBySymbol(@Param("symbol") Symbol symbol);
 
-    List<StockQuote> findByIdSymbolAndIdDateBetween(Symbol symbol, LocalDate dateFrom, LocalDate dateTo);
+@Query("select sq from StockQuote sq where sq.id.symbol = :symbol and sq.id.date between :startdate and :enddate")
+public List<StockQuote> findAllByIdAndDateBetween(@Param("startdate") LocalDate dateFrom,
+                                                        @Param("enddate") LocalDate dateTo,
+                                                        @Param("symbol") Symbol symbol);
+
+
+//    StockQuote  save(StockQuote quote);
+//
+    List <StockQuote> findAllById_Symbol(Symbol symbol);
+//
+//    boolean existsById(StockQuoteId stockQuoteId);
+
+//    void saveAll(List<StockQuote> stockQuote);
 }

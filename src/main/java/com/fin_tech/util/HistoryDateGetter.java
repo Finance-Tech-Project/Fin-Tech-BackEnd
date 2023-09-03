@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import java.io.StringReader;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
+import java.util.LinkedList;
 import java.util.List;
 
 public class HistoryDateGetter {

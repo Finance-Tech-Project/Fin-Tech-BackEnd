@@ -1,20 +1,21 @@
 package com.fin_tech.model;
 
-import com.fin_tech.composite_key.StockQuoteId;
 import lombok.*;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.time.LocalDate;
+
+import com.fin_tech.composite_key.StockQuoteId;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Getter
+@Setter
 @ToString
-@Table(name = "stock_quotes")
+@Table(name = "stockquote")
 public class StockQuote {
     @EmbeddedId
     StockQuoteId id;
@@ -23,9 +24,6 @@ public class StockQuote {
     Double low;
     Double close;
     Long volume;
-
-
-
 
 //    public LocalDate getDate() {
 //        return getDate();
